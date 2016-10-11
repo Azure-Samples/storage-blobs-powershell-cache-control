@@ -110,6 +110,6 @@ foreach ($blob in $blobs)
 [1]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/blob-storage/?WT.mc_id=A52BDE99C
 [2]: https://azure.microsoft.com/en-us/documentation/articles/storage-powershell-guide-full/
 [3]: https://msdn.microsoft.com/en-us/library/azure/ee691966.aspx
-[4]: images\1.png
-[5]: images\2.png
-[6]: images\3.png
+[4]: images/1.png
+[5]: images/2.png
+[6]: images/3.png
