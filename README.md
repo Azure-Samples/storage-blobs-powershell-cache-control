@@ -15,13 +15,6 @@ Usually, if we wanted to set the cache-control property of blob files, we can do
 
 However, this blog will consider to use PowerShell script to do same work because it’s more convenient to change the property when we want. This example is to help us set storage blob cache-control Properties by PowerShell script, one thing should be noticed is we still need to use **"Microsoft.WindowsAzure.StorageClient.dll"** to access the blobs.
 
-## Example
-```ps1
-#set Properties 
-$blobRef.Properties.CacheControl = $cacheControlValue 
-$blobRef.SetProperties() 
-```
-
 ## Scenario
 You need to set storage blob cache-control property  / check cache-control property through PowerShell script easily. 
 
@@ -29,9 +22,12 @@ You need to set storage blob cache-control property  / check cache-control prope
 - PowerShell Version > 3.0
 - Windows Azure PowerShell > 1.0.0
 
-## See Also
-- [Using Azure PowerShell with Azure Storage][2]
-- [Set blob Properties][3]
+## Example
+```ps1
+#set Properties 
+$blobRef.Properties.CacheControl = $cacheControlValue 
+$blobRef.SetProperties() 
+```
 
 ## Script
 The content of the script is reproduced below
@@ -99,13 +95,21 @@ foreach ($blob in $blobs)
 ```
 
 - Test result: 
-	- Before run script:  
+	- Before run script:  The **Cache Control** is empty and the METADATA is empty too.  
 	![][4]
 	- Run script:  
-	![][5]
+    Type Command **Get-AzureAccount**  
+	The Command Line will show you the AzureAccount infomation.  
+    And Then Type Command **E:\TSG\readiness\Cognitive Services Readiness\setcachecontrol.ps1**
+    ![][5]
+
 	- Result:  
+    The cache Control has been created, And The METADATA 
 	![][6]
 
+## See Also
+- [Using Azure PowerShell with Azure Storage][2]
+- [Set blob Properties][3]
 
 [1]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/blob-storage/?WT.mc_id=A52BDE99C
 [2]: https://azure.microsoft.com/en-us/documentation/articles/storage-powershell-guide-full/
