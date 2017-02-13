@@ -9,14 +9,14 @@ author: msonecode
 ## Introduction
 Setting **Cache-Control** on [Azure Blobs][1] can help reduce bandwidth and improve the performance by preventing consumers from having to continuously download resources. 
 
-**Cache-Control** allows you to specify a relative amount of time to cache data after it was received. It’s mostly recommended when you need control over how caching is done.
+**Cache-Control** allows you to specify a relative amount of time to cache data after it is received. It is strongly recommended if you need the control over the completed cache.
 
-Usually, if we wanted to set the cache-control property of blob files, we can do such work through azure portal/windows azure storage explore… However, if you want to set the cache-control property of every file in your blob, using such ways will cost lots of time, and you may also need to change this property overtimes. A better way to do this is creating C# program using Azure Storage Client assembly and set it.
+We used to set the cache-control property of blob files through azure portal or windows azure storage explore. However, if you want to set the cache-control property for each file in your blob, such method will be a waste of time. Besides, you may also need to change this property overtimes. A better way to do this is creating a C# program using Azure Storage Client assembly and setting it.
 
-However, this blog will consider to use PowerShell script to do same work because it’s more convenient to change the property when we want. This example is to help us set storage blob cache-control Properties by PowerShell script, one thing should be noticed is we still need to use **"Microsoft.WindowsAzure.StorageClient.dll"** to access the blobs.
+However, this blog considers using PowerShell script to do the same work because it’s more convenient to change the property. This example is to help us set storage blob cache-control properties by PowerShell script. One thing to be noticed is that we still need to use **"Microsoft.WindowsAzure.StorageClient.dll"** to access the blobs.
 
 ## Scenario
-You need to set storage blob cache-control property  / check cache-control property through PowerShell script easily. 
+You need to set storage blob cache-control property or easily check cache-control property through PowerShell script. 
 
 ## Requirements
 - PowerShell Version > 3.0
@@ -30,8 +30,8 @@ $blobRef.SetProperties()
 ```
 
 ## Script
-The content of the script is reproduced below
-- Download and install the latest PowerShell, and connect to you subscription.  
+The content of the script is reproduced at below.
+- Download and install the latest PowerShell. Then, connect it to your subscription.  
 ```ps1
 Import-AzurePublishSettingsFile -Environment AzureChinaCloud E:\PublishSettings\CIETest03-12-9-2015-credentials.publishsettings 
 ```
@@ -95,11 +95,11 @@ foreach ($blob in $blobs)
 ```
 
 - Test result: 
-	- Before run script:  The **Cache Control** is empty and the METADATA is empty too.  
+	- Before running the script:  The **Cache Control** is empty and the METADATA is empty too.  
 	![][4]
 	- Run script:  
     Type Command **Get-AzureAccount**  
-	The Command Line will show you the AzureAccount infomation.  
+	The Command Line will provide you with the AzureAccount infomation.  
     And Then Type Command **E:\TSG\readiness\Cognitive Services Readiness\setcachecontrol.ps1**
     ![][5]
 
